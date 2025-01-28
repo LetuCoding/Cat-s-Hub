@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <!-- Enlace al archivo CSS estático -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+
+    <section class="games-container">
+     {% for game in games %}
+    <div class="game-card">
+        <h2>{{ game.name }}</h2>
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_image }}.jpg" alt="Imagen del juego" class="cover-image">
+        <p>Rating: {{ game.rating }}</p>
+        <p>Plataformas: 
+            {% for platform in game.platforms %}
+                {{ platform.name }}{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+{% endfor %}
+    </section>
+
+
+</body>
+</html>
