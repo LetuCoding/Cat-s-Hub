@@ -1,0 +1,50 @@
+ {% block navBar %}
+ <!-- Barra de Navegación -->
+    <nav>
+        <!-- Logo -->
+        <div id="logo">
+         <a href=""><img src="img/Cat's Hub.png" alt="Cat's Hub Logo" ></a>   
+        </div>
+        
+        <!-- Botón de Menú de Hamburguesa -->
+        <div class="menu-button" id="menu-button" onclick="toggleMenu()">
+          <div class="categoria">
+            ☰ CATEGORÍAS
+          </div>
+        </div>
+
+        <button id="tienda" class="btn-shop" > Tienda </button>
+     
+       
+        
+        <!-- Barra de Búsqueda -->
+        <div class="search-container">
+            <input type="text" id="buscador" placeholder="Buscar...">
+            <button id="btn-buscador">
+                <box-icon name="search" type="solid" color="#ffffff"></box-icon>
+            </button>
+        </div>
+        
+        <!-- Botones de Usuario -->
+        <div class="user-options">
+          
+            <button id="loginBtn" class="btn-open-login">Iniciar Sesión</button>
+
+            <button id="registerBtn" class="btn-open-register">Registrarse</button>
+        </div>
+    </nav>
+    
+
+   <!-- Menú Desplegable -->
+    <div id="menu" class="menu">
+   <a href="index.html"><img src="img/Cat's Hub.png" alt="Cat's Hub Logo" height="256" ></a> 
+
+ 
+        <ul class="menu-items">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="#">Videojuegos</a></li>
+            <li><a href="#">Noticias</a></li>
+           
+        </ul>
+    </div>
+{% endblock %}

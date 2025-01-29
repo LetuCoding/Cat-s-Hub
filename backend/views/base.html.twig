@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<html lang="en">
+<head>
+    <title>{{ title }}</title>
+       <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+
+    {# ZONA DE LINKS Y CSS IMPORTANTES #}
+    
+    
+
+    {# JQuery CDN #}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    {# FIN ZONA DE LINKS Y CSS IMPORTANTES #}
+
+    {# ZONA PARA AGREGAR CSS Y JS A LA PAGINA DESDE TWIG #}
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+{# CONTENIDO TRAÍDO DE LAS PLANTILLAS #}  
+  <div id="content">
+    {% block content %}
+    {% endblock %}
+  </div>  
+
+
+
+
+{# ZONA PARA LOS SCRIPTS QUE SE EJECUTARAN EN LA PAGINA #}
+  {% block javascript %}
+
+  {% endblock %}
+</body>
+</html>

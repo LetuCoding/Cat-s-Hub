@@ -17,6 +17,13 @@ app.set('views', path.join(__dirname, 'views')); // Establecer el directorio de 
 app.use(express.static(path.join(__dirname, 'public')));
 
 
+app.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Hola Mundo',
+        message: 'Esta es una aplicación con Node.js y Twig'
+        });
+        });
+
 app.get('/games', async (req, res) => {
     const CLIENT_ID = process.env.CLIENT_ID;
     const ACCESS_TOKEN = process.env.ACCESS_TOKEN;
@@ -33,7 +40,7 @@ app.get('/games', async (req, res) => {
                 'Authorization': `Bearer ${ACCESS_TOKEN}`,
                 'Content-Type': 'application/json',
             },
-            body: "fields name, rating, release_dates.date, platforms.name, cover; sort rating desc; limit 5;",
+            body: "fields name, rating, release_dates.date, platforms.name, cover; sort rating asc; limit 1;",
         });
 
         if (!gamesResponse.ok) {
