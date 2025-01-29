@@ -18,11 +18,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Hola Mundo',
-        message: 'Esta es una aplicación con Node.js y Twig'
-        });
-        });
+    res.render('index', {});
+        
+});
 
 app.get('/games', async (req, res) => {
     const CLIENT_ID = process.env.CLIENT_ID;
