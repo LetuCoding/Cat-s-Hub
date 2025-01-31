@@ -2,21 +2,40 @@
 
 {% block css %}
 <link rel="stylesheet" href="/css/styles.css">
-{% endblock %}  {# Close the css block properly #}
-
-{% block content %}  {# Corrected block declaration #}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h1 class="page-title">Featured Games</h1>
+    
     <section class="games-container">
         {% for game in games %}
-            <div class="game-card">
-                <h2>{{ game.name }}</h2>
-                <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_image }}.jpg" alt="Imagen del juego" class="cover-image">
-                <p>Rating: {{ game.rating }}</p>
-                <p>Plataformas: 
-                    {% for platform in game.platforms %}
-                        {{ platform.name }}{% if not loop.last %}, {% endif %}
-                    {% endfor %}
-                </p>
-            </div>
+            <article class="game-card">
+                <div class="game-cover">
+                    <img 
+                        src="https://images.igdb.com/igdb/image/upload/t_cover_big/{{ game.cover_image }}.jpg" 
+                        alt="{{ game.name }}" 
+                        class="cover-image"
+                    >
+                </div>
+                
+                <div class="game-info">
+                    <h2 class="game-title">{{ game.name }}</h2>
+                    
+                    <div class="game-rating">
+                        <svg class="rating-star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                        </svg>
+                        <span class="rating-value">{{ game.rating|round }}%</span>
+                    </div>
+                    
+                    <div class="platforms-list">
+                        {% for platform in game.platforms %}
+                            <span class="platform-tag">{{ platform.name }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
         {% endfor %}
     </section>
-{% endblock %}  {# Now properly closed #}
+</div>
+{% endblock %}

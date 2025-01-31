@@ -38,7 +38,7 @@ app.get('/games', async (req, res) => {
                 'Authorization': `Bearer ${ACCESS_TOKEN}`,
                 'Content-Type': 'application/json',
             },
-            body: "fields name, rating, release_dates.date, platforms.name, cover; sort rating asc; limit 1;",
+            body: "fields name, rating, release_dates.date, platforms.name, cover;where rating_count > 100; sort rating desc; limit 4;",
         });
 
         if (!gamesResponse.ok) {
